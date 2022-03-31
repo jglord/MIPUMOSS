@@ -40,20 +40,6 @@ import mars.mips.so.ProcessManager.PCB;
     public class Mars {
        public static void main(String[] args) {
            new mars.MarsLaunch(args);
-
-           // Coletando valor dos registradores
-           PCB pcb = new PCB();
-
-           System.out.println("Registradores 1 -> \n");
-           pcb.showRegisters();
-
-           //Alterando valor do registrador 11
-           pcb.setRegValue(11, 155);
-
-           System.out.println("Registradores dois -> \n");
-           pcb.showRegisters();
-
-
        }
    } 
 

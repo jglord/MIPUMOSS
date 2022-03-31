@@ -9,11 +9,20 @@ public class PCB {
     private ProcessState state;
     private Register[] registers;
 
+    // PCB constructor, constroi um novo bloco de controle de processo
+    PCB(int initAdress, int PID, ProcessState state, Register[] registers){
+        this.setInitAdress(initAdress);
+        this.setPID(PID);
+        this.setState(state);
+        this.setRegisters(registers);
+    }
+
     // Mostra os registradores e seus valores
     public void showRegisters(){
         // Definindo registradores no pcb
         this.hardToPcb(RegisterFile.getRegisters());
 
+        // Printando registradores e seus valores
         System.out.println("Registradores: \n");
         for (int i = 0; i < this.getRegisters().length; i++) {
             System.out.println(i + "-> " + this.getRegisters()[i].getValue());
