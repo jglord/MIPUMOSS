@@ -8,9 +8,9 @@ import java.util.List;
 public class ProcessTable {
 
     // Lista de processor prontos para executar
-    private List<PCB> readyProcessList;
+    private static List<PCB> readyProcessList;
     // Processo executando no momento
-    private PCB execProcess;
+    private static PCB execProcess;
 
     // Adiciona um processo em uma List<PCB>, lista de blocos de controle de processos
     public List<PCB> addProcess(List<PCB> processList, PCB newProcess){
@@ -19,8 +19,26 @@ public class ProcessTable {
     }
 
     public PCB newProcess(int initAdress, int PID, ProcessState state, Register[] registers){
-        return new PCB(initAdress, PID, state, registers);
+        return new PCB(initAdress, PID, state);
     }
 
+    public void removeProcess(PCB pcb){
+        this.getReadyProcessList().remove(pcb);
+    }
 
+    public List<PCB> getReadyProcessList() {
+        return readyProcessList;
+    }
+
+    public static void setReadyProcessList(List<PCB> readyProcessList) {
+        readyProcessList = readyProcessList;
+    }
+
+    public PCB getExecProcess() {
+        return execProcess;
+    }
+
+    public static void setExecProcess(PCB execProcess) {
+        execProcess = execProcess;
+    }
 }

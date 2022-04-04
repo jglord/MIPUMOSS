@@ -9,10 +9,13 @@ public class ProcessState {
      * 2 = executando
      *
 */
+    public ProcessState(int state){
+        this.setState(state);
+    }
     public int state;
 
     public int getState() {
-        return state;
+        return this.state;
     }
 
     public void setState(int state) {

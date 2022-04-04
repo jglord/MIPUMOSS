@@ -3,6 +3,8 @@ package mars.mips.so.ProcessManager;
 import mars.mips.hardware.Register;
 import mars.mips.hardware.RegisterFile;
 
+import java.util.Random;
+
 public class PCB {
     private int initAdress;
     private int PID;
@@ -10,11 +12,11 @@ public class PCB {
     private Register[] registers;
 
     // PCB constructor, constroi um novo bloco de controle de processo
-    PCB(int initAdress, int PID, ProcessState state, Register[] registers){
+    public PCB(int initAdress, int PID, ProcessState state){
         this.setInitAdress(initAdress);
-        this.setPID(PID);
+        this.setPID(new Random(33).nextInt()); // setando pid aleatorio
         this.setState(state);
-        this.setRegisters(registers);
+        this.setRegisters(RegisterFile.getRegisters());
     }
 
     // Mostra os registradores e seus valores
