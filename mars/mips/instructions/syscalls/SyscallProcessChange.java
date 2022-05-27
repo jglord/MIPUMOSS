@@ -12,12 +12,12 @@ import mars.mips.so.ProcessManager.Scheduler;
 public class SyscallProcessChange extends AbstractSyscall{
 
     // Tabela de processos.
-    public static ProcessTable processTable;
+    public static ProcessTable processTable = new ProcessTable();
     // o número da sycall passado no registrador 2 ($v0)
     public static int callNumber = RegisterFile.getValue(2);
 
     // Processo parado.
-    public PCB oldProcess ;
+    public PCB oldProcess;
 
     // Novo processo a ser executado
     public PCB execProcess;

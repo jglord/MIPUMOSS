@@ -12,7 +12,7 @@ public class PCB {
     private Register[] registers;
 
     // PCB constructor, constroi um novo bloco de controle de processo
-    public PCB(int initAdress, int PID, ProcessState state){
+    public PCB(int initAdress, ProcessState state){
         this.setInitAdress(initAdress);
         this.setPID(new Random(33).nextInt()); // setando pid aleatorio
         this.setState(state);
@@ -36,7 +36,7 @@ public class PCB {
         this.setRegisters(registers);
     }
 
-    // TODO: Copiar da PCB para os registradores físicos
+    // TODO: Copiar da PCB para os registradores físicos -> checar hi e lo
     public void pcbToHard(){
         for (int i = 0; i < registers.length; i++) {
             RegisterFile.updateRegister(i, this.getRegisters()[i].getValue());

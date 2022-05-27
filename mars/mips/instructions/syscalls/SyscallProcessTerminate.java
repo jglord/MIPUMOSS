@@ -24,6 +24,7 @@ public class SyscallProcessTerminate extends AbstractSyscall{
      //* @param number default assigned service number
      //* @param name   service name which may be used for reference independent of number
      */
+
     public SyscallProcessTerminate() {
         super(20,"SyscallProcessTerminate");
 

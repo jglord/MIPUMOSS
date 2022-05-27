@@ -9,7 +9,13 @@ public class Timer extends AbstractMarsToolAndApplication {
 
     private static String name    = "Timer";
     private static String version = "Version 0.1 (João goulart)";
-    private static String heading = "Its a timer";
+    private static String heading = "Timer";
+
+    public int totalInstructions;
+    public int instructionsCount;
+
+    public JButton initCountButton;
+    public JTextField quantInstructionsField;
 
     /**
      * Simple constructor
@@ -20,7 +26,6 @@ public class Timer extends AbstractMarsToolAndApplication {
     public Timer(String title, String heading) {
         super(title,heading);
     }
-
 
     public Timer() {
         super(name + ", " + version, heading);
@@ -38,12 +43,26 @@ public class Timer extends AbstractMarsToolAndApplication {
     @Override
     protected JComponent buildMainDisplayArea() {
         // Create everything
-        JPanel panel = new JPanel(new GridBagLayout());
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("Quantidade de instruções: "));
+        // form para quantidade de instrucoes a serem contadas
+        quantInstructionsField = new JTextField( 10);
+        panel.add(quantInstructionsField);
 
         // botao iniciar contagem
-        // form para quantidade de instrucoes a serem contadas
+        initCountButton = new JButton("Iniciar contagem");
+        panel.add(initCountButton);
 
 
         return panel;
+    }
+    // @Override
+    protected void reset() {
+        instructionsCount = 0;
+        updateDisplay();
+    }
+
+    @Override
+    protected void updateDisplay() {
     }
 }

@@ -11,6 +11,7 @@ public class Scheduler {
     // Fila de processos prontos a serem executados.
     public Queue<PCB> readyQueue;
     public PCB scheduledProcess;
+
     /*
     * Seleciona o processo a ser executado, atualmente baseado em uma fila, ou seja,
     * resgata o primeiro processo da fila.

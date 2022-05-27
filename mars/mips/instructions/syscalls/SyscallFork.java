@@ -13,7 +13,7 @@ import java.util.Random;
 // Essa syscall cria um PCB e o adiciona na tabela de processos
 public class SyscallFork extends AbstractSyscall{
 
-    public PCB process = new PCB(RegisterFile.getValue(4), new Random(33).nextInt(), new ProcessState(1));
+    public PCB process = new PCB(RegisterFile.getValue(4), new ProcessState(1));
     public static ProcessTable processTable; // Tabela de processos estatica.
     public static int callNumber = RegisterFile.getValue(2);
     public int initAdress = RegisterFile.getValue(4);
@@ -33,7 +33,7 @@ public class SyscallFork extends AbstractSyscall{
         int initAdress = RegisterFile.getValue(4); // Definindo o endereço inicial como sendo o passado no registrado $a0
 
         // Criando novo processo
-        PCB newProcess = new PCB(initAdress, callNumber, new ProcessState(1));
+        PCB newProcess = new PCB(initAdress, new ProcessState(1));
         this.setProcess(newProcess); // Definindo novo processo que acabou de ser criado;
 
         // Incluindo na tabela de processos
